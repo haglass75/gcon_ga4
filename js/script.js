@@ -61,5 +61,60 @@ $(document).ready(function () {
       }
     });
   });
+  // header스크롤 적용
+  const hTop = $(".header-top")
+  const hTop_H = hTop.height()
+  const hMiddle = $(".header-middle")
+  const hMiddle_H = hMiddle.height()
+  // console.log(hMiddle_H);
+  
+  // console.log( hTop_H );
+  const hHeight = hTop_H + hMiddle_H
+  $(window).scroll(function(){
+    // 스크롤바의 위치값을 파악한다
+    const scY = $(window).scrollTop()
+    // console.log(scY);
+    if(scY >= hHeight){
+      $(".header").addClass("h-fix")
+      $(".logo-gnb").addClass("h-show")
+      $(".gnb").addClass("h-fix-gnb")
+    }else{
+      $(".header").removeClass("h-fix")
+      $(".logo-gnb").removeClass("h-show")
+      $(".gnb").removeClass("h-fix-gnb")
+    }
+    
+  })
+  // swiper 
+  // content 슬라이드
+  // const sw_content = new Swiper(".sw-content",{
+
+  // })
+  // sw-notice 슬라이드
+  const sw_notice = new Swiper(".sw-notice",{
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    nested: true,
+    navigation: {
+      nextEl: ".sw-notice-next",
+      prevEl: ".sw-notice-prev",
+    },
+    pagination: {
+      el: ".sw-notice-pg",
+      type: "fraction",
+    },
+  })
+  $(".sw-notice-pause").click(function () {
+    
+    sw_notice.autoplay.stop();
+  });
+  // 자동 재생 실행
+  $(".sw-notice-play").click(function () {
+   
+    sw_notice.autoplay.start();
+  });
   // ====================================
 });
