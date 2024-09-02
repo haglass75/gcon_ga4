@@ -554,7 +554,7 @@ padding-bottom: 60px;
   background: url('../images/edu2.png') no-repeat top;
   background-size: cover;
 }
-* 일정표 */
+/* 일정표 */
 .calendar-wrap {
     position: relative;
     display: block;    
